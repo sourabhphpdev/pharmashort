@@ -83,88 +83,11 @@ class _SignInScreenState extends State<SignInScreen> {
              child:SingleChildScrollView(
                child: Column(
                  children: [
-                  SizedBox(
-                    height: 110,
-                    child: Stack(
-                      children: [
-                        Pinned.fromPins(
-                          Pin(size: 220.0, start: 29.0),
-                          Pin(size: 37.0, start: 67.0),
-                          child: Stack(
-                            children: <Widget>[
-                              Pinned.fromPins(
-                                Pin(size: 82.0, end: 0.0),
-                                Pin(start: 0.0, end: 0.0),
-                                child: Text(
-                                  'Log In',
-                                  style: TextStyle(
-                                    fontFamily: 'Forma DJR Display',
-                                    fontSize: 28,
-                                    color: const Color(0xff000000),
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                  textAlign: TextAlign.left,
-                                ),
-                              ),
-                              Pinned.fromPins(
-                                Pin(size: 30.0, start: 0.0),
-                                Pin(size: 30.0, end: 1.0),
-                                child:
-                                // Adobe XD layer: 'Layer 2' (group)
-                                Stack(
-                                  children: <Widget>[
-                                    Pinned.fromPins(
-                                      Pin(start: 0.0, end: 0.0),
-                                      Pin(start: 0.0, end: 0.0),
-                                      child:
-                                      // Adobe XD layer: 'invisible box' (group)
-                                      Stack(
-                                        children: <Widget>[
-                                          Pinned.fromPins(
-                                            Pin(start: 0.0, end: 0.0),
-                                            Pin(start: 0.0, end: 0.0),
-                                            child: Container(
-                                              decoration: BoxDecoration(),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Pinned.fromPins(
-                                      Pin(size: 18.5, middle: 0.4809),
-                                      Pin(size: 17.2, middle: 0.4831),
-                                      child:
-                                      // Adobe XD layer: 'Q3 icons' (group)
-                                      Stack(
-                                        children: <Widget>[
-                                          Pinned.fromPins(
-                                            Pin(start: 0.0, end: 0.0),
-                                            Pin(start: 0.0, end: 0.0),
-                                            child:InkWell(
-                                              onTap: (){
-                                                Navigator.push(context,
-                                                    MaterialPageRoute(builder: (context) {
-                                                      return GetStarted2();
-                                                    }));
-                                              },
-                                            child: SvgPicture.string(
-                                              BackArrowSvg,
-                                              allowDrawingOutsideViewBox: true,
-                                              fit: BoxFit.fill,
-                                            ),
-                                          ),)
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                   SizedBox(
+                     height: 110,
+                     child: PageHeader("Log in"),
+                   ),
+
                    SizedBox(
                      height: 160,
                      child: Stack(

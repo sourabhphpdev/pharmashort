@@ -268,6 +268,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                               Pin(size: 30.0, middle: 1.99),
                               child: Stack(
                                 children: <Widget>[
+
                                   Pinned.fromPins(
                                     Pin(size: 60.0, end: 0.0),
                                     Pin(start: 0.0, end: 0.0),
