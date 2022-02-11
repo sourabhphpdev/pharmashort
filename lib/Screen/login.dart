@@ -84,75 +84,12 @@ class _SignInScreenState extends State<SignInScreen> {
                child: Column(
                  children: [
                    SizedBox(
-                     height: 110,
+                     height: 130,
                      child: PageHeader("Log in"),
                    ),
 
-                   SizedBox(
-                     height: 160,
-                     child: Stack(
-                       children: [
-                         Pinned.fromPins(
-                           Pin(size: 113.6, middle: 0.5),
-                           Pin(size: 51.8, middle: 0.1806),
-                           child: socialSVGForSingIn_SingUp(),
-                         ),
-                         Pinned.fromPins(
-                           Pin(start: 49.8, end: 49.8),
-                           Pin(size: 21.0, middle: 0.6428),
-                           child: Stack(
-                             children: <Widget>[
-                               Pinned.fromPins(
-                                 Pin(size: 18.0, middle: 0.5009),
-                                 Pin(start: 0.0, end: 0.0),
-                                 child: Text(
-                                   'Or',
-                                   style: TextStyle(
-                                     fontFamily: 'Forma DJR Display',
-                                     fontSize: 16,
-                                     color: const Color(0xffff5038),
-                                   ),
-                                   textAlign: TextAlign.left,
-                                 ),
-                               ),
-                               Pinned.fromPins(
-                                 Pin(size: 119.0, start: 0.0),
-                                 Pin(size: 1.0, middle: 0.625),
-                                 child: SvgPicture.string(
-                                   LineLeftSvg,
-                                   allowDrawingOutsideViewBox: true,
-                                   fit: BoxFit.fill,
-                                 ),
-                               ),
-                               Pinned.fromPins(
-                                 Pin(size: 119.0, end: 0.0),
-                                 Pin(size: 1.0, middle: 0.625),
-                                 child: SvgPicture.string(
-                                   LineRightSvg,
-                                   allowDrawingOutsideViewBox: true,
-                                   fit: BoxFit.fill,
-                                 ),
-                               ),
+                   buildSocialLogin(context),
 
-                             ],
-                           ),
-                         ),
-                         Pinned.fromPins(
-                           Pin(size: 181.0, middle: 0.5251),
-                           Pin(size: 27.0, middle: 0.889),
-                           child: Text(
-                             'Choose your email',
-                             style: TextStyle(
-                               fontFamily: 'Forma DJR Display',
-                               fontSize: 16,
-                               color: const Color(0xff000000),
-                             ),
-                             textAlign: TextAlign.left,
-                           ),
-                         ),
-                       ],
-                     ),
-                   ),
                    SizedBox(
                      height: 300,
                      child: Stack

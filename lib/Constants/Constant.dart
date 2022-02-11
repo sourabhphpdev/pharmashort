@@ -11,12 +11,21 @@ Color orange = Color(0xFFFF5038);
 Color shadowColor = Color(0x7E95A1FF);
 Color lightBlue = Color.fromRGBO(4, 8, 112, 0.56);
 Color lightBlueWithLowOpacity = Color.fromRGBO(4, 8, 112, 0.12);
+String google_icon_src="https://cdn.icon-icons.com/icons2/836/PNG/512/Google_icon-icons.com_66793.png";
+String linkdin_icon_src="https://www.pngfind.com/pngs/m/36-369191_blue-linkedin-linkedin-logo-linkedin-icon-webflow-icon.png";
 TextStyle heading1=TextStyle(
   fontFamily: 'Forma DJR Display',
   fontSize: 44,
   color: orange,
   fontWeight: FontWeight.bold
 );
+TextStyle textStyle1=TextStyle(
+  fontFamily: 'Helvetica',
+  fontSize: 14.0,
+  color: Colors.black.withOpacity(0.6),
+  height: 1.29,
+);
+
 TextStyle pageTitleTextStyle=TextStyle(
                   fontFamily: 'Forma DJR Display',
                   fontSize: 28,
