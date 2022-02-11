@@ -84,13 +84,152 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Column(
                     children: [
                       SizedBox(
-                        height: 130,
-                        child: PageHeader("Create Account"),
+                        height: 110,
+                        child: Stack(
+                          children: [
+                            Pinned.fromPins(
+                              Pin(size: 380.0, start: 29.0),
+                              Pin(size: 37.0, start: 67.0),
+                              child: Stack(
+                                children: <Widget>[
+                                  Pinned.fromPins(
+                                    Pin(size: 282.0, start: 90.0),
+                                    Pin(size: 37.0, end: 0.0),
+                                    child: Text(
+                                      'Create Account',
+                                      style: TextStyle(
+                                        fontFamily: 'Forma DJR Display',
+                                        fontSize: 28,
+                                        color: const Color(0xff000000),
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  Pinned.fromPins(
+                                    Pin(size: 30.0, start: 0.0),
+                                    Pin(size: 30.0, end: 1.0),
+                                    child:
+                                    // Adobe XD layer: 'Layer 2' (group)
+                                    Stack(
+                                      children: <Widget>[
+                                        Pinned.fromPins(
+                                          Pin(start: 0.0, end: 0.0),
+                                          Pin(start: 0.0, end: 0.0),
+                                          child:
+                                          // Adobe XD layer: 'invisible box' (group)
+                                          Stack(
+                                            children: <Widget>[
+                                              Pinned.fromPins(
+                                                Pin(start: 0.0, end: 0.0),
+                                                Pin(start: 0.0, end: 0.0),
+                                                child: Container(
+                                                  decoration: BoxDecoration(),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Pinned.fromPins(
+                                          Pin(size: 18.5, middle: 0.4809),
+                                          Pin(size: 17.2, middle: 0.4831),
+                                          child:
+                                          // Adobe XD layer: 'Q3 icons' (group)
+                                          Stack(
+                                            children: <Widget>[
+                                              Pinned.fromPins(
+                                                Pin(start: 0.0, end: 0.0),
+                                                Pin(start: 0.0, end: 0.0),
+                                                child:InkWell(
+                                                  onTap: (){
+                                                    Navigator.push(context,
+                                                        MaterialPageRoute(builder: (context) {
+                                                          return SignInScreen();
+                                                        }));
+                                                  },
+                                                  child: SvgPicture.string(
+                                                    BackArrowSvg,
+                                                    allowDrawingOutsideViewBox: true,
+                                                    fit: BoxFit.fill,
+                                                  ),
+                                                ),)
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
+                      SizedBox(
+                        height: 160,
+                        child: Stack(
+                          children: [
+                            Pinned.fromPins(
+                              Pin(size: 113.6, middle: 0.5),
+                              Pin(size: 51.8, middle: 0.1806),
+                              child: socialSVGForSingIn_SingUp(),
+                            ),
+                            Pinned.fromPins(
+                              Pin(start: 49.8, end: 49.8),
+                              Pin(size: 21.0, middle: 0.6428),
+                              child: Stack(
+                                children: <Widget>[
+                                  Pinned.fromPins(
+                                    Pin(size: 18.0, middle: 0.5009),
+                                    Pin(start: 0.0, end: 0.0),
+                                    child: Text(
+                                      'Or',
+                                      style: TextStyle(
+                                        fontFamily: 'Forma DJR Display',
+                                        fontSize: 16,
+                                        color: const Color(0xffff5038),
+                                      ),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  Pinned.fromPins(
+                                    Pin(size: 119.0, start: 0.0),
+                                    Pin(size: 1.0, middle: 0.625),
+                                    child: SvgPicture.string(
+                                      LineLeftSvg,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Pinned.fromPins(
+                                    Pin(size: 119.0, end: 0.0),
+                                    Pin(size: 1.0, middle: 0.625),
+                                    child: SvgPicture.string(
+                                      LineRightSvg,
+                                      allowDrawingOutsideViewBox: true,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
 
-                      buildSocialLogin(context),
-
-
+                                ],
+                              ),
+                            ),
+                            Pinned.fromPins(
+                              Pin(size: 181.0, middle: 0.5251),
+                              Pin(size: 27.0, middle: 0.889),
+                              child: Text(
+                                'Choose your email',
+                                style: TextStyle(
+                                  fontFamily: 'Forma DJR Display',
+                                  fontSize: 16,
+                                  color: const Color(0xff000000),
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       SizedBox(
                         height: 340,
                         child: Stack

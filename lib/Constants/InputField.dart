@@ -53,6 +53,7 @@ class InputField extends StatelessWidget {
   // );
   @override
   Widget build(BuildContext context) {
+    var color;
     return Container(
       // height: height??60,
       width: width == null ? double.maxFinite : width,

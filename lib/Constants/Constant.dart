@@ -11,27 +11,12 @@ Color orange = Color(0xFFFF5038);
 Color shadowColor = Color(0x7E95A1FF);
 Color lightBlue = Color.fromRGBO(4, 8, 112, 0.56);
 Color lightBlueWithLowOpacity = Color.fromRGBO(4, 8, 112, 0.12);
-String google_icon_src="https://cdn.icon-icons.com/icons2/836/PNG/512/Google_icon-icons.com_66793.png";
-String linkdin_icon_src="https://www.pngfind.com/pngs/m/36-369191_blue-linkedin-linkedin-logo-linkedin-icon-webflow-icon.png";
 TextStyle heading1=TextStyle(
   fontFamily: 'Forma DJR Display',
   fontSize: 44,
   color: orange,
   fontWeight: FontWeight.bold
 );
-TextStyle textStyle1=TextStyle(
-  fontFamily: 'Helvetica',
-  fontSize: 14.0,
-  color: Colors.black.withOpacity(0.6),
-  height: 1.29,
-);
-
-TextStyle pageTitleTextStyle=TextStyle(
-                  fontFamily: 'Forma DJR Display',
-                  fontSize: 28,
-                  color: const Color(0xff000000),
-                  fontWeight: FontWeight.w700,
-                );
 
 String BtnBgRedSVG =
     '<svg viewBox="48.0 637.0 295.0 50.0" ><path transform="translate(48.0, 637.0)" d="M 25 0 L 270 0 C 283.80712890625 0 295 11.1928825378418 295 25 C 295 38.8071174621582 283.80712890625 50 270 50 L 232.0986633300781 50 L 25 50 C 11.1928825378418 50 0 38.8071174621582 0 25 C 0 11.1928825378418 11.1928825378418 0 25 0 Z" fill="#ff5038" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
