@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:shop_project/Constants/Constant.dart';
+import 'package:pharmashots/Constants/Constant.dart';
+
 
 class ApiRepository {
   Future<http.Response> RegisterOTPVerification(Object modal) async {

@@ -17,12 +17,6 @@ TextStyle heading1=TextStyle(
   color: orange,
   fontWeight: FontWeight.bold
 );
-TextStyle pageTitleTextStyle=TextStyle(
-                  fontFamily: 'Forma DJR Display',
-                  fontSize: 28,
-                  color: const Color(0xff000000),
-                  fontWeight: FontWeight.w700,
-                );
 
 String BtnBgRedSVG =
     '<svg viewBox="48.0 637.0 295.0 50.0" ><path transform="translate(48.0, 637.0)" d="M 25 0 L 270 0 C 283.80712890625 0 295 11.1928825378418 295 25 C 295 38.8071174621582 283.80712890625 50 270 50 L 232.0986633300781 50 L 25 50 C 11.1928825378418 50 0 38.8071174621582 0 25 C 0 11.1928825378418 11.1928825378418 0 25 0 Z" fill="#ff5038" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
