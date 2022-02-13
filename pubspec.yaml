@@ -50,6 +50,9 @@ dependencies:
   intl: ^0.17.0
   adobe_xd: ^2.0.1
   flutter_svg: ^1.0.3
+  flutter_slidable: ^1.2.0
+  provider: ^5.0.0
+#  custom_switch: ^0.0.1
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +83,9 @@ flutter:
     - assets/images/Group@2x.png
     - assets/images/Group.png
     - assets/images/onboard.jpg
+    - assets/images/Rectangle 9.png
+    - assets/images/
+    - assets/images/icons svg/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,15 +1,33 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pharmashots/Constants/Constant.dart';
 
 import '../Constants/ColorButton.dart';
 import 'get_started1.dart';
 
 class HomeState extends StatelessWidget{
+  DateTime? currentBackPressTime;
+
+  Future<bool> onWillPop() {
+    DateTime now = DateTime.now();
+    if (currentBackPressTime == null ||
+        now.difference(currentBackPressTime!) > Duration(seconds: 2)) {
+      currentBackPressTime = now;
+      Fluttertoast.showToast(msg: "press back twice to exit");
+      return Future.value(false);
+    }
+    return exit(0);
+  }
+
   @override
   Widget build(BuildContext context) {
     var height = AppBar().preferredSize.height;
-    return Scaffold(
+
+    return WillPopScope(
+        onWillPop: onWillPop,
+        child:
+        Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Container(
@@ -59,6 +77,7 @@ class HomeState extends StatelessWidget{
           ],
         ),
       ),
+    )
     );
   }
   

@@ -2,13 +2,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:pharmashots/ApiRepository/http_exception.dart';
+import 'package:pharmashots/Constants/LoaderClass.dart';
+import 'package:pharmashots/Screen/get_started1.dart';
+import 'package:provider/provider.dart';
 import 'package:pharmashots/Constants/components.dart';
 import 'package:pharmashots/Screen/get_started2.dart';
+import 'package:pharmashots/Users/userProvider.dart';
 import '../Constants/Constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import '../routs.dart';
 import 'ForgotPasswordScreen.dart';
 import 'SignupScreen.dart';
+import 'animal_health_screen.dart';
+import 'get_notification.dart';
 
 class SignInScreen extends StatefulWidget {
   static const routeName = '/SignInScreen';
@@ -19,6 +27,8 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey();
+  late OverlayEntry loader;
+
   var _isLoading = false;
   var pass_showing=true;
   final emailController = TextEditingController();
@@ -39,19 +49,27 @@ class _SignInScreenState extends State<SignInScreen> {
       _isLoading = true;
     });
     try {
-      // Log user in
-      // await Provider.of<Auth>(context, listen: false).login(
-      //   _authData['email'].toString(),
-      //   _authData['password'].toString(),
-      // );
-      print("login..");
-      //Navigator.pushNamedAndRemoveUntil(context, '/home', (r) => false);
+      Overlay.of(context)!.insert(loader);
+      Loader.hideLoader(loader);
+
+      await Provider.of<User>(context, listen: false).login(
+        _authData['email'].toString(),
+        _authData['password'].toString(),
+      );
+
+      //Loader.hideLoader(loader);
+      Navigator.pushNamed(context, MyRoutes.HomePagerouts);
       // CommonFunctions.showSuccessToast('Login Successful');
-    } on Exception {
+    } on HttpException {
+      Loader.hideLoader(loader);
       var errorMsg = 'Auth failed';
+      print(errorMsg);
       // CommonFunctions.showErrorDialog(errorMsg, context);
     } catch (error) {
+      Loader.hideLoader(loader);
       print(error);
+      print('fails');
+
       const errorMsg = 'Could not authenticate!';
       // CommonFunctions.showErrorDialog(errorMsg, context);
     }
@@ -71,11 +89,31 @@ class _SignInScreenState extends State<SignInScreen> {
     });
   }
 
+  void initState() {
+    // Call your async method here
+    //_isAlreadyLogin();
+    super.initState();
+  }
+
+  Future<void> _isAlreadyLogin()
+  async {
+    bool ok;
+    ok= await Provider.of<User>(context, listen: false).isAuth();
+    print(ok);
+  }
 
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    loader = Loader.overlayLoader(context);
+    return WillPopScope(
+        onWillPop: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return GetStarted1();
+      }));
+      return Future<bool>.value(true);
+    },
+    child: Stack(
    children: <Widget>[
      Scaffold(
        body: Form(
@@ -144,7 +182,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                               onTap: (){
                                                 Navigator.push(context,
                                                     MaterialPageRoute(builder: (context) {
-                                                      return GetStarted2();
+                                                      return GetStarted1();
                                                     }));
                                               },
                                             child: SvgPicture.string(
@@ -215,7 +253,7 @@ class _SignInScreenState extends State<SignInScreen> {
                            ),
                          ),
                          Pinned.fromPins(
-                           Pin(size: 181.0, middle: 0.5251),
+                           Pin(size: 160.0, middle: 0.5800),
                            Pin(size: 27.0, middle: 0.889),
                            child: Text(
                              'Choose your email',
@@ -380,20 +418,29 @@ class _SignInScreenState extends State<SignInScreen> {
                                Pinned.fromPins(
                                  Pin(size: 66.0, middle: 0.4978),
                                  Pin(size: 19.0, middle: 0.4839),
-                                 child: Text(
-                                     'SIGN IN',
-                                     style: TextStyle(
-                                       fontFamily: 'Forma DJR Display',
-                                       fontSize: 14,
-                                       color: const Color(0xffffffff),
-                                       letterSpacing: 2.1,
-                                       fontWeight: FontWeight.w700,
-                                       height: 2.5,
+                                 child: InkWell(
+                                   onTap: (){
+                                     print("Click Next");
+                                     Navigator.push(context,
+                                         MaterialPageRoute(builder: (context) {
+                                           return NotificationPage();
+                                         }));
+                                   },
+                                   child: Text(
+                                       'SIGN IN',
+                                       style: TextStyle(
+                                         fontFamily: 'Forma DJR Display',
+                                         fontSize: 14,
+                                         color: const Color(0xffffffff),
+                                         letterSpacing: 2.1,
+                                         fontWeight: FontWeight.w700,
+                                         height: 2.5,
+                                       ),
+                                       textHeightBehavior:
+                                       TextHeightBehavior(applyHeightToFirstAscent: false),
+                                       textAlign: TextAlign.center,
                                      ),
-                                     textHeightBehavior:
-                                     TextHeightBehavior(applyHeightToFirstAscent: false),
-                                     textAlign: TextAlign.center,
-                                   ),
+                                 ),
                                  ),
                              ],
                            ),
@@ -421,7 +468,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                        fontSize: 16,
                                        color: const Color(0xff000000),
                                      ),
-                                     textAlign: TextAlign.left,
+                                     textAlign: TextAlign.center,
                                    ) ,
                                  ),
                                ),
@@ -511,7 +558,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
 
         ],
-    );
+    ));
   }
 
 

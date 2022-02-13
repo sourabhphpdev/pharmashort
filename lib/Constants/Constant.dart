@@ -3,9 +3,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-String BaseUrl = 'https://viragtea.com/localsmart/public/api/';
+String BASE_URL = 'https://pharmashots.com/api/pharmashots/';
 
 Color white = Colors.white;
+Color red = Color(0xFFFF5038);
+Color reddark = Color(0xFFEF3C0E);
 Color textBlack = Color(0xff000000);
 Color orange = Color(0xFFFF5038);
 Color shadowColor = Color(0x7E95A1FF);
@@ -16,6 +18,18 @@ TextStyle heading1=TextStyle(
   fontSize: 44,
   color: orange,
   fontWeight: FontWeight.bold
+);
+TextStyle heading2=TextStyle(
+    fontFamily: 'Forma DJR Display',
+    fontSize: 34,
+    color: orange,
+    fontWeight: FontWeight.bold
+);
+TextStyle heading3=TextStyle(
+    fontFamily: 'Forma DJR Display',
+    fontSize: 24,
+    color: orange,
+    fontWeight: FontWeight.bold
 );
 
 String BtnBgRedSVG =

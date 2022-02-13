@@ -2,10 +2,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:pharmashots/Constants/LoaderClass.dart';
 import 'package:pharmashots/Constants/components.dart';
+import 'package:pharmashots/Users/userProvider.dart';
+import 'package:provider/provider.dart';
 import '../Constants/Constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../routs.dart';
 import 'login.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -18,14 +22,20 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   var _isLoading = false;
+  late OverlayEntry loader;
+
   var pass_showing=true;
   final emailController = TextEditingController();
-  final fullnameController = TextEditingController();
+  final firstnameController = TextEditingController();
+  final lastnameController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   Map<String, String> _authData = {
     'email': '',
     'password': '',
+    'firstname':'',
+    'lastname':'',
   };
 
   Future<void> _submit() async {
@@ -39,13 +49,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
       _isLoading = true;
     });
     try {
-      // Log user in
-      // await Provider.of<Auth>(context, listen: false).login(
-      //   _authData['email'].toString(),
-      //   _authData['password'].toString(),
-      // );
-      print("login..");
-      //Navigator.pushNamedAndRemoveUntil(context, '/home', (r) => false);
+      // SignUp user
+      Overlay.of(context)!.insert(loader);
+      Loader.hideLoader(loader);
+      await Provider.of<User>(context, listen: false).register(_authData['firstname'].toString(),_authData['lastname'].toString(),
+        _authData['email'].toString(),
+        _authData['password'].toString(),
+      );
+      print("Signup");
+      Navigator.pushNamed(context, MyRoutes.Login,);
       // CommonFunctions.showSuccessToast('Login Successful');
     } on Exception {
       var errorMsg = 'Auth failed';
@@ -75,6 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    loader = Loader.overlayLoader(context);
     return Stack(
       children: <Widget>[
         Scaffold(
@@ -231,18 +244,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 340,
+                        height: 410,
                         child: Stack
                           (
                           children: [
                             Pinned.fromPins(
                               Pin(start: 36.0, end: 36.0),
-                              Pin(size: 335.0, middle: 0.1126),
+                              Pin(size: 405.0, middle: 0.1126),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: <Widget>[
                                   Text(
-                                    'Full Name',
+                                    'First Name',
                                     style: TextStyle(
                                       fontFamily: 'Forma DJR Display',
                                       fontSize: 16,
@@ -258,10 +271,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     child:TextFormField(
                                       style: TextStyle(fontSize: 14),
                                       decoration: getInputDecoration(
-                                        'Full Name',
+                                        'First Name',
                                         Icons.title,
                                       ),
-                                      controller: fullnameController,
+                                      controller: firstnameController,
                                     //  keyboardType: TextInputType.emailAddress,
                                       validator: (value) {
                                         if (value!.isEmpty || value.length < 3) {
@@ -269,8 +282,45 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         }
                                       },
                                       onSaved: (value) {
-                                        emailController .text = value.toString();
-                                        _authData['email'] = value!;
+                                        firstnameController .text = value.toString();
+                                        _authData['firstname'] = value!;
+                                      },
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 12.0,
+                                  ),
+
+                                  Text(
+                                    'Last Name',
+                                    style: TextStyle(
+                                      fontFamily: 'Forma DJR Display',
+                                      fontSize: 16,
+                                      color: const Color(0xff000000),
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  SizedBox(
+                                    height: 12.0,
+                                  ),
+                                  SizedBox(
+                                    //  height: 48.0,
+                                    child:TextFormField(
+                                      style: TextStyle(fontSize: 14),
+                                      decoration: getInputDecoration(
+                                        'Last Name',
+                                        Icons.title,
+                                      ),
+                                      controller: lastnameController,
+                                      //  keyboardType: TextInputType.emailAddress,
+                                      validator: (value) {
+                                        if (value!.isEmpty || value.length < 3) {
+                                          return 'Required a valid name !';
+                                        }
+                                      },
+                                      onSaved: (value) {
+                                        lastnameController .text = value.toString();
+                                        _authData['lastname'] = value!;
                                       },
                                     ),
                                   ),

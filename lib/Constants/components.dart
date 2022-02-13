@@ -1,9 +1,14 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:adobe_xd/pinned.dart';
+import 'package:pharmashots/Screen/home_screen.dart';
 import '../Constants/Constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'color_resource.dart';
+import 'fonts.dart';
 
 class Btn_white extends StatelessWidget {
 
@@ -470,4 +475,246 @@ Widget linkdnIcon()
       ),
     ),
   );
+}
+
+class listwidget extends StatelessWidget {
+  const listwidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 17),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        child: Container(
+          height: 75,
+          width: 318,
+          // decoration: BoxDecoration(
+          //   borderRadius: BorderRadius.circular(22),
+          // ),
+          child: Stack(
+            children: [
+              Positioned(
+                  top: 0,
+                  left: 0,
+                  bottom: 0,
+                  child: Container(
+                    height: 75,
+                    width: 72,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      image: DecorationImage(
+                        image:
+                        AssetImage('assets/images/Rectangle 9.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  )),
+              Positioned(
+                top: 10,
+                left: 80,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 12),
+                  child: Container(
+                    height: 60,
+                    width: 222,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                            'Dengue Cases On Rise : Here’s What You Can Do To Protect Yourself',
+                          style: FormaDJRDisplayBold.copyWith(
+                            color: ColorResources.BLACK,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: Row(
+                            children: [
+
+                              Spacer(),
+                              Text('4 min read',style: Helveticaregular.copyWith(
+                                color: ColorResources.LIGHTBLACK,
+                              ),),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text('7 hours ago',style: Helveticaregular.copyWith(
+                                color: ColorResources.LIGHTBLACK,
+                              ),),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text('ANIMAL HEALTH',style: HelveticaBold.copyWith(
+                                color: ColorResources.Orange,
+                              ),),
+                              SizedBox(
+                                width: 4,
+                              ),
+                            //  Icon(Icons.share),
+                              SvgPicture.asset('assets/images/icons svg/Icon-feather-share.svg',
+                                color: Colors.black,
+                            ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                            // Icon(Icons.bookmark),
+                              SvgPicture.asset('assets/images/icons svg/Icon ionic-ios-bookmark.svg',
+                                height: 15,
+                                width: 14,
+                                ),
+
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+class FlotingAction extends StatelessWidget {
+  const FlotingAction({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomePage()));
+      },
+      child: Image.asset('assets/images/pharmashort_icon.png'),
+      //Icon(Icons.home,color: Colors.white),
+      backgroundColor: Colors.white,
+      elevation: 0.1,
+    );
+  }
+}
+
+
+class CardView extends StatelessWidget {
+  const CardView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Container(
+        height: 110,
+        width: 99,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          children: [
+            Positioned(
+                top: 0,
+                left: 0,
+                bottom: 0,
+                child: Container(
+                  height: 68,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(6),
+                      topLeft: Radius.circular(6),
+                    ),
+                    image: DecorationImage(
+                      image: AssetImage(
+                          'assets/images/Rectangle 9.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 8,
+                        ),
+                        child: Row(
+                          children: [
+                            Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  right: 8.0),
+                              child: Container(
+                                height: 14,
+                                width: 14,
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                  BorderRadius.circular(30),
+                                  color: ColorResources
+                                      .OrangeLight,
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Image.asset(
+                                    'assets/images/Path 707@2x.png',
+                                    fit: BoxFit.cover,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(top: 26.0),
+                      //   child: Container(
+                      //     height: 30,
+                      //     width: 30,
+                      //     decoration: BoxDecoration(
+                      //       borderRadius:
+                      //       BorderRadius.circular(30),
+                      //       color: ColorResources
+                      //           .OrangeLight,
+                      //     ),
+                      //     child: Padding(
+                      //       padding:
+                      //       const EdgeInsets.all(8.0),
+                      //       child: SvgPicture.asset(
+                      //         'assets/images/icons svg/reload.svg',
+                      //         color: Colors.white,
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
+                    ],
+                  ),
+                )),
+
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                'Animal Health',
+                textAlign: TextAlign.center,
+                style: Helveticaregular.copyWith(
+                  color: ColorResources.BLACK,
+                  fontSize: 10,
+                ),
+              ),
+            ),
+
+          ],
+        ),
+      ),
+    );
+  }
 }

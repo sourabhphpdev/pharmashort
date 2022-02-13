@@ -1,11 +1,18 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:pharmashots/ApiRepository/shared_pref_helper.dart';
 import 'package:pharmashots/Constants/Constant.dart';
+import 'package:pharmashots/Screen/home_screen.dart';
+import 'package:pharmashots/Screen/userAuthCheck.dart';
+import 'package:pharmashots/Users/userProvider.dart';
+import 'package:provider/provider.dart';
 
 import '../Constants/ColorButton.dart';
 import 'get_started2.dart';
+import 'login.dart';
 
 class GetStarted1 extends StatelessWidget{
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +29,10 @@ class GetStarted1 extends StatelessWidget{
             Center(
               child: Column(
                 children: [
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.15,
+                  SizedBox(height: 90,
                   ),
                   Container(
-                    width: 250,height: 260,
+                    width: 231,height: 251,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: const AssetImage('assets/images/Group.png'),
@@ -49,7 +55,7 @@ class GetStarted1 extends StatelessWidget{
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  Padding(padding: EdgeInsets.only(top: 12,bottom: 30),
+                  Padding(padding: EdgeInsets.only(top: 12,),
                     child:Center(
                       child:Text(
                         'Real - time summarised news in 3 shots from Biopharma, MedTech, Digital Health & Life Science Industry.',
@@ -64,7 +70,7 @@ class GetStarted1 extends StatelessWidget{
                         textAlign: TextAlign.center,
                       ) ,
                     ) ,),
-                  Padding(padding: EdgeInsets.only(top: 12,bottom: 30),
+                  Padding(padding: EdgeInsets.only(top: 18,bottom: 12),
                     child:Center(
                       child: Text(
                         'Readable In 60 Seconds',
@@ -85,10 +91,7 @@ class GetStarted1 extends StatelessWidget{
                           (
                           onTap: (){
                             print("Click Next");
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                                  return GetStarted2();
-                                }));
+                            getAuthStr(context);
                           },
                           child:ColorButton(
                             title: 'Next',
@@ -145,6 +148,25 @@ class GetStarted1 extends StatelessWidget{
         ),
       ),
     );
+  }
+
+  void getAuthStr(BuildContext context) async{
+    String? s="";
+    s= await SharedPreferenceHelper().getAuthToken();
+    print("--------");
+    if(s==null || s=="")
+      {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) {
+              return SignInScreen();
+            }));
+      }else{
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) {
+            return HomePage();
+          }));
+    }
+
   }
 
 }

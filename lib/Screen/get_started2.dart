@@ -31,7 +31,7 @@ class GetStarted2 extends StatelessWidget{
 
                       Spacer(flex: 300),
                       Align(
-                        alignment: Alignment(0.43, 0.0),
+                        alignment: Alignment(0.0, 0.0),
                         child: Text(
                           'Welcome To\nPharma Shots',
                           style: TextStyle(
@@ -46,7 +46,7 @@ class GetStarted2 extends StatelessWidget{
                       ),
                       Spacer(flex: 14),
                       Align(
-                       // alignment: Alignment(0.43, 0.0),
+                        alignment: Alignment(0.0, 0.0),
                         child: Text(
                           'Real - time summarised news in 3 shots from Biopharma, MedTech, Digital Health & Life Science Industry.',
                           style: TextStyle(
@@ -60,7 +60,7 @@ class GetStarted2 extends StatelessWidget{
                       ),
                       Spacer(flex: 13),
                       Align(
-                       // alignment: Alignment(0.43, 0.0),
+                       alignment: Alignment(0.0, 0.0),
                         child: Text(
                           'Readable In 60 Seconds',
                           style: TextStyle(
@@ -74,7 +74,7 @@ class GetStarted2 extends StatelessWidget{
                       ),
                       Spacer(flex: 33),
                       Align(
-                        alignment: Alignment(0.06, 0.0),
+                        alignment: Alignment(0.0, 0.0),
                         child:InkWell(
                           onTap: (){
                             print("Click Next");
